@@ -2,6 +2,7 @@ package org.jduchess.handson.streams;
 
 
 import org.jduchess.handson.Dish;
+import org.jduchess.handson.TestBase;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -16,7 +17,7 @@ import static java.util.stream.Collectors.summingInt;
 import static org.assertj.core.api.Assertions.assertThat;
 
 //Collecting Data
-public class Exercise2 extends TestBase{
+public class Exercise2 extends TestBase {
 
 
     //reducing and sumarizing

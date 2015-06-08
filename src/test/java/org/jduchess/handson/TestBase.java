@@ -1,12 +1,10 @@
-package org.jduchess.handson.streams;
-
-import org.jduchess.handson.Dish;
+package org.jduchess.handson;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class TestBase {
-    List<Dish> menu = Arrays.asList(
+    protected List<Dish> menu = Arrays.asList(
             new Dish("pork", false, 800, Dish.Type.MEAT),
             new Dish("beef", false, 700, Dish.Type.MEAT),
             new Dish("chicken", false, 400, Dish.Type.MEAT),
