@@ -63,7 +63,7 @@ public class Exercise1 extends TestBase {
     }
 
     @Test
-    public void should_find_out_the_legth_of_the_name_of_each_dish(){
+    public void should_build_a_stream_from_the_legth_of_the_name_of_each_dish(){
         List<Integer> dishNameLengths = Lists.newArrayList();
 
         // ADD CODE HERE
@@ -80,6 +80,7 @@ public class Exercise1 extends TestBase {
         // ADD CODE HERE
 
         assertThat(uniqueCharacters).isNotEmpty();
+        assertThat(uniqueCharacters).hasSize(20);
     }
 
     @Test
@@ -112,7 +113,7 @@ public class Exercise1 extends TestBase {
 
     //Mapping to a numeric stream
     @Test
-    public void should_calculate_the_sum_of_calories_in_the_menu_and_converting_back_to_a_stream_of_integers(){
+    public void should_calculate_the_sum_of_calories_in_the_menu_using_sum(){
         int totalCalories = 0;
 
         // ADD CODE HERE
