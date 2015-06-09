@@ -5,8 +5,11 @@ import org.jduchess.handson.Dish;
 import org.jduchess.handson.TestBase;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -105,6 +108,17 @@ public class Exercise1 extends TestBase {
         // ADD CODE HERE
 
         assertThat(calories).isEqualTo(4200);
+    }
+
+    //Mapping to a numeric stream
+    @Test
+    public void should_calculate_the_sum_of_calories_in_the_menu_and_converting_back_to_a_stream_of_integers(){
+        int totalCalories = 0;
+
+        // ADD CODE HERE
+
+        assertThat(totalCalories).isEqualTo(4200);
+
     }
 
 
