@@ -1,19 +1,21 @@
 package org.jduchess.handson.streams;
 
 
-import org.jduchess.handson.Dish;
-import org.junit.Test;
-
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-
 import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.maxBy;
 import static java.util.stream.Collectors.summingInt;
 import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.jduchess.handson.Dish;
+import org.junit.Test;
 
 //Collecting Data
 public class Exercise2 extends TestBase{
@@ -56,6 +58,19 @@ public class Exercise2 extends TestBase{
 
         assertThat(totalCalories).isEqualTo(4200);
     }
-
-
+    
+    //joining
+    @Test
+    public void should_join_vegetarian_dish_names() {
+    	String joined = menu.stream().filter(dish -> dish.isVegetarian() == true).map(dish -> dish.getName()).collect(Collectors.joining(","));
+        
+        assertThat(joined).isEqualTo("french fries,rice,season fruit,pizza");
+    }
+    
+    @Test
+    public void should_get_vegetarian_dish_names_in_list() {
+    	List<String> list = menu.stream().filter(dish -> dish.isVegetarian() == true).map(dish -> dish.getName()).collect(ArrayList::new, ArrayList::add, ArrayList::addAll);
+        
+        assertThat(list).containsExactly("french fries","rice","season fruit","pizza");
+    }
 }
