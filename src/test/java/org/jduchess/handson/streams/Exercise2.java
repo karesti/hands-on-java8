@@ -1,20 +1,17 @@
 package org.jduchess.handson.streams;
 
 
-import org.jduchess.handson.Dish;
-import org.jduchess.handson.TestBase;
-import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.maxBy;
-import static java.util.stream.Collectors.summingInt;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.jduchess.handson.Dish;
+import org.jduchess.handson.TestBase;
+import org.junit.Test;
 
 //Collecting Data
 public class Exercise2 extends TestBase {
@@ -23,7 +20,9 @@ public class Exercise2 extends TestBase {
     //reducing and sumarizing
     @Test
     public void should_count_number_of_dishes(){
-        long howManyDishes = menu.stream().collect(counting());
+        long howManyDishes = 0;
+        
+    	// ADD CODE HERE
 
         assertThat(howManyDishes).isEqualTo(9);
     }
@@ -32,7 +31,9 @@ public class Exercise2 extends TestBase {
     //groupingBy
     @Test
     public void should_group_dishes_by_type(){
-        Map<Dish.Type, List<Dish>> dishMap = menu.stream().collect(groupingBy(Dish::getType));
+        Map<Dish.Type, List<Dish>> dishMap = null;
+        
+    	// ADD CODE HERE
 
         assertThat(dishMap).containsKeys(Dish.Type.FISH, Dish.Type.MEAT, Dish.Type.OTHER);
 
@@ -43,7 +44,9 @@ public class Exercise2 extends TestBase {
     @Test
     public void should_get_max_calorie_dish(){
         Comparator<Dish> dishCaloriesComparator = Comparator.comparingInt(Dish::getCalories);
-        Optional<Dish> mostCalorieDish = menu.stream().collect(maxBy(dishCaloriesComparator));
+        Optional<Dish> mostCalorieDish = Optional.empty();
+
+    	// ADD CODE HERE
 
         assertThat(mostCalorieDish.isPresent()).isTrue();
         assertThat(mostCalorieDish.get().getName()).isEqualTo("pork");
@@ -53,10 +56,33 @@ public class Exercise2 extends TestBase {
     //summingInt
     @Test
     public void should_count_total_number_of_calories(){
-        int totalCalories = menu.stream().collect(summingInt(Dish::getCalories));
+        int totalCalories = 0;
+        
+    	// ADD CODE HERE
 
         assertThat(totalCalories).isEqualTo(4200);
     }
+    
+    //joining
+    @Test
+    public void should_join_vegetarian_dish_names() {
+    	String joined = "";
+    	
+    	// ADD CODE HERE
+        
+        assertThat(joined).isEqualTo("french fries,rice,season fruit,pizza");
+    }
+    
+    //getAsList
+    @Test
+    public void should_get_vegetarian_dish_names_in_list() {
+    	List<String> list = Collections.emptyList();
+    	
+    	// ADD CODE HERE
+        
+        assertThat(list).containsExactly("french fries","rice","season fruit","pizza");
+    }
+    
 
 
 }
