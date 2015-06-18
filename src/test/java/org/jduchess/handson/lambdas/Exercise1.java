@@ -12,7 +12,7 @@ import java.util.function.Predicate;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-//Intermediate & terminal Operations
+
 public class Exercise1 extends TestBase {
 
     @Test
@@ -43,7 +43,7 @@ public class Exercise1 extends TestBase {
     @Test
     public void should_find_non_vegetarian_dishes_using_lambda() {
         // REWRITE the nonVegetarianDish predicate using lambda expression
-        Predicate<Dish> nonVegetarianDish = Predicate.isEqual(null);// (Dish dish) -> !dish.isVegetarian();
+        Predicate<Dish> nonVegetarianDish = Predicate.isEqual(null);
         List<Dish> nonVegetarianDishes = filter(menu, nonVegetarianDish);
 
         assertThat(nonVegetarianDishes).isNotEmpty();
@@ -65,7 +65,7 @@ public class Exercise1 extends TestBase {
 
     private class DishComparator implements Comparator<Dish> {
         public int compare(Dish dish1, Dish dish2) {
-            return 0;//new Integer(dish1.getCalories()).compareTo(dish2.getCalories());
+            return 0;
         }
     }
 
@@ -82,7 +82,7 @@ public class Exercise1 extends TestBase {
     private Predicate<Dish> isNotVegetarian = new Predicate<Dish>() {
         @Override
         public boolean test(Dish dish) {
-            return false;//!dish.isVegetarian();
+            return false;
         }
     };
 
